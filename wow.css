@@ -1,24 +1,35 @@
 .bar {
 	width: 30px;
-	height: 40px;
+	height: 30px;
 	background-color: BlanchedAlmond;
 	border: 1px solid black;
+	/*
 	display: inline-block;
 	margin-left: auto;
 	margin-right: auto;
 	vertical-align: middle;
+	*/
 }
 
+.negative {
+	background-color: red;
+}
+
+/*
 #graph {
 	width: 100%;
-	height: 80%;
+	height: 600px;
 	display: table;
 }
+*/
 
+/*
 #mid {
 	display: table-cell;
 	vertical-align: middle;
+	position: relative;
 }
+*/
 
 form {
 	display: block;
