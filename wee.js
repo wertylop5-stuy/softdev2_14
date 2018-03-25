@@ -6,11 +6,7 @@ const YEAR_2016 = [
 	39, 27.7, 69.7, 484, 159, 7.47, -0.664, 14.4, 17.2, 888,
 	185, 1.68, -226
 ];
-const YEAR_2017 = [
-	8, -90000, 516, 70.9, 24.6, 995, 46.4, 25.7, 12.6, 35,
-	9, 27.7, 69.7, 484, 159, 7.47, -0.664, 14.4, 17.2, 888,
-	185, 1.68, 2
-];
+const YEAR_2017 = [];
 
 const DEPARTMENTS = [
 	"Agriculture", "Commerce", "Defense", "Education", "Energy",
@@ -54,8 +50,6 @@ function createDataObjList(data, labels) {
 
 	let graph = d3.select("#graph tbody");
 
-	let trans = d3.transition().duration(10000);
-	
 	//add labels first
 	graph.selectAll("tr").data(data2016).enter()
 		.append("tr").append("td").classed("label", true)
@@ -73,47 +67,28 @@ function createDataObjList(data, labels) {
 		let value = d3.event.target.value;
 		if (value === "2016") {
 			console.log("2016");
-			graph.selectAll("tr").data(data2016);
+			graph.selectAll("tr").data(data2016)
+				.enter()
+				.select("td div")
+				.classed("negative", d => d.value < 0);
 		}
 		else if (value === "2017") {
 			console.log("2017");
 			
-			
-			//graph.selectAll("tr").data(data2017);
-			
-			graph.selectAll("tr").data(data2017).enter()
+			//have to set class and transition seperately
+			//for some reason
+			graph.selectAll("tr").data(data2017)
+				.enter()
 				.select("td div")
-				.classed("negative", d => d.value < 0)
-				.transition(trans)
-				.style("width", d => {
-					return makePositive(d.value) + "px";
-				});
-			
-			console.log(graph.selectAll("div").data(data2017).enter()
-				.transition());
-				//.style("width", d => makePositive(d.value));
-
-				
-			console.log(graph.selectAll("tr")
-				.select("td div"));
-				//.transition(trans)
-				//.style("width", d => makePositive(d.value)));
-
-			graph.selectAll("tr")
-				.select("td div")
-				.transition(trans)
-				.style("width", d => {
-					return makePositive(d.value) + "px";
-				});
-			
-			/*
-			graph.selectAll("tr")
-				.select("td div")
-				.classed("negative", d => d.value < 0)
-				//.transition().duration(2000)
-				.style("width", d => makePositive(d.value));
-				*/
+				.classed("negative", d => d.value < 0);
 		}
+		
+		graph.selectAll("tr")
+			.select("td div")
+			.transition().duration(5000)
+			.style("width", d => {
+				return makePositive(d.value) + "px";
+			});
 	});
 })();
 
