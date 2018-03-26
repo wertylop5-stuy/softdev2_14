@@ -6,7 +6,11 @@ const YEAR_2016 = [
 	39, 27.7, 69.7, 484, 159, 7.47, -0.664, 14.4, 17.2, 888,
 	185, 1.68, -226
 ];
-const YEAR_2017 = [];
+const YEAR_2017 = [
+	133, 9.28, 516, 60.2, 26.7, 1010, 42, 35.8, 13.2, 31,
+	44.8, 25.4, 75.5, 544, 159, 7.65, 1.13, 23.3, 16.9, 908,
+	182, 12.1, -225
+];
 
 const DEPARTMENTS = [
 	"Agriculture", "Commerce", "Defense", "Education", "Energy",
@@ -85,7 +89,7 @@ function createDataObjList(data, labels) {
 		
 		graph.selectAll("tr")
 			.select("td div")
-			.transition().duration(5000)
+			.transition().duration(2000)
 			.style("width", d => {
 				return makePositive(d.value) + "px";
 			});
