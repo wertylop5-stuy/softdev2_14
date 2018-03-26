@@ -63,6 +63,7 @@ function createDataObjList(data, labels) {
 	graph.selectAll("tr").append("td").append("div")
 		.classed("bar", true)
 		.classed("negative", d => d.value < 0)
+		.text(d => d.value)
 		.style("width", d => makePositive(d.value));
 	
 	//set up radio buttons
@@ -71,9 +72,10 @@ function createDataObjList(data, labels) {
 		let value = d3.event.target.value;
 		if (value === "2016") {
 			console.log("2016");
-			graph.selectAll("tr").data(data2016)
-				.enter()
+			graph.selectAll("tr").data(data2016);
+			graph.selectAll("tr")
 				.select("td div")
+				.text(d => d.value)
 				.classed("negative", d => d.value < 0);
 		}
 		else if (value === "2017") {
@@ -81,9 +83,10 @@ function createDataObjList(data, labels) {
 			
 			//have to set class and transition seperately
 			//for some reason
-			graph.selectAll("tr").data(data2017)
-				.enter()
+			graph.selectAll("tr").data(data2017);
+			graph.selectAll("tr")
 				.select("td div")
+				.text(d => d.value)
 				.classed("negative", d => d.value < 0);
 		}
 		
