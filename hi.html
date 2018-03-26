@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>US Budget Spending</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="wow.css" />
+</head>
+
+<body>
+	<center style="padding-top: 25px;">
+	<h1>US Budget Spending Breakdown</h1>
+	<hr>
+	<h3>In Billions of Dollars</h3>
+	<h5>Green: positive</h5>
+	<h5>Red: negative</h5>
+	<h5>Sources: <a href="http://federal-budget.insidegov.com/l/119/2016">2016</a> and
+		<a href="http://federal-budget.insidegov.com/l/120/2017-Estimate">2017 </a></h5>
+	<form>
+		<input type="radio" name="year" value="2016" checked>2016</input>
+		<input type="radio" name="year" value="2017">2017 (Estimate)</input>
+	</form>
+	<div style="padding-bottom: 25px; padding-left: 50px; padding-right: 50px;">
+	<div class="card" style="padding-bottom: 25px; padding-top: 25px; padding-left: 30px; padding-right: 30px;">
+	<table id="graph">
+	<tbody>
+	</tbody>
+	</table>
+</div>
+	</div>
+	<br>
+	<br>
+	<br>
+</center>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="wee.js"></script>
+</body>
+</html>
